@@ -1,9 +1,19 @@
 <% include partials/header %>
 
 <!--Design your page here -->
+<h4>Welcome <%= user%></h4>
 <h1>Post page</h1>
 
 <!-- Displays all the post in the database -->
+
+<!-- create your own post-->
+<h3>Create Post</h3>
+<form action="/newPost" method="Post">
+    <input type="text" name="post[title]" placeholder="Title" />
+    <input type="text" name="post[body]" placeholder="Compose Post" />
+    <input type="submit" value="Post" />
+</form>
+
 
 <!-- Logout-->
 <a href="/logout">Logout</a>
