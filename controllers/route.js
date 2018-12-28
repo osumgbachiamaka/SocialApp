@@ -65,6 +65,7 @@ router.get('/posts/:id', function(req, res){
         }
         else{
             res.render("showPost", {returnedPosts: returnedPosts})
+            
         }
     })
 })
