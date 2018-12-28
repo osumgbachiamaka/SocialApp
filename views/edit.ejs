@@ -1,0 +1,12 @@
+<% include partials/header %>
+
+<!--Design your page here -->
+<h1>Edit <%= post.title%></h1>
+<form method="post" action="/editPost">
+    <input type="text" name="returnedPosts[name]"  value="<%= post.name%>"/>
+    <input type="text" name="reveiws[role]" value="<%= post.role%>" />
+    <input type="text" name="reveiws[topic]" value="<%= post.topic%>" />
+    <textarea name="<%= returnedReveiw.body%>"><%= post.body%></textarea>
+    <input type="submit" value="Submit" />
+</form>
+<% include partials/footer %>

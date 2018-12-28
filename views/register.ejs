@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<!--Design your page here -->
+<h1>Register page</h1>
+<form action="/register" method="post">
+    <input type="text" name="user[name]" placeholder="Enter your name in full" required />
+    <input type="email" name="user[email]" placeholder="Enter your Email Address" required />
+    <input type="password" name="user[password]" placeholder="Password" required />
+    <input type="password" placeholder="Confirm Password" required />
+    <input type="submit" value="Register"/>
+    <span>Already a member </span><a href="/login">Login</a>
+</form>
+
+<% include partials/footer %>
