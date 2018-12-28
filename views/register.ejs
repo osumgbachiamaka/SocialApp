@@ -1,14 +1,41 @@
 <% include partials/header %>
 
-<!--Design your page here -->
-<h1>Register page</h1>
-<form action="/register" method="post">
-    <input type="text" name="user[name]" placeholder="Enter your name in full" required />
-    <input type="email" name="user[email]" placeholder="Enter your Email Address" required />
-    <input type="password" name="user[password]" placeholder="Password" required />
-    <input type="password" placeholder="Confirm Password" required />
-    <input type="submit" value="Register"/>
-    <span>Already a member </span><a href="/login">Login</a>
-</form>
+    <header>
+        <div class="container">
+            <div class="brandname">
+                <h1>connect<span class="brandname-span">Me</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li class="active"><a href="/register">Create An Account</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <section id="main-register">
+            <div class="container">
+                <h1>Create An Account</h1>
+                <form action="/register" method="post">
+
+                        <div class="form-field">
+                            <input type="text" name="user[name]" value="" placeholder="Full Name">
+                        </div>
+                        <div class="form-field">
+                            <input type="email" name="user[email]" value="" placeholder="Email Address">
+                        </div>
+                        <div class="form-field">
+                            <input type="password" name="user[password]" value="" placeholder="Password">
+                        </div>
+                        <div class="form-field">
+                            <input type="password" value="" placeholder="Confirm Password">
+                        </div>
+                        <p>Already a member? <span><a href="/login">Login</a></span></p>
+                            <input type="submit" value="Register" class="button">
+                </form>
+            </div>
+        </section>
 
 <% include partials/footer %>
