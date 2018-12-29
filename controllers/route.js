@@ -6,6 +6,9 @@ var express =   require('express')
 router.get('/', function(req, res){
     res.render('index');
 })
+router.get('/index', function(req, res){
+    res.redirect('/');
+})
 
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
@@ -18,7 +21,6 @@ router.get('/newPost', isLoggedIn, function(req, res){
     res.redirect('posts');
 })
 router.get('/posts',  isLoggedIn, function(req, res){
-    // res.render('posts', {user: req.user.name});
     Post.find({}, function(err, allPosts){
         if(err){
             console.log('An error occured '+ err);
@@ -31,12 +33,12 @@ router.get('/posts',  isLoggedIn, function(req, res){
 //Show Route
 router.get('/posts/:id', function(req, res){
     var id = req.params.id;
-    Post.findById(id, function(err, returnedPosts){
+    Post.findById(id, function(err, returnedPost){
         if(err){
             res.redirect("/posts")
         }
         else{
-            res.render("showPost", {returnedPosts: returnedPosts})
+            res.render("showPost", {returnedPost: returnedPost})
             
         }
     })
