@@ -3,8 +3,11 @@ var express =   require('express')
     Post =      require('../models/postModels');
 
 //========other routes======//
-router.get('/',  isLoggedIn, function(req, res){
-    res.render('login');
+router.get('/', function(req, res){
+    res.render('index');
+})
+router.get('/index', function(req, res){
+    res.redirect('/');
 })
 
 function isLoggedIn(req, res, next){
@@ -18,25 +21,24 @@ router.get('/newPost', isLoggedIn, function(req, res){
     res.redirect('posts');
 })
 router.get('/posts',  isLoggedIn, function(req, res){
-    res.render('posts', {user: req.user.name});
-    // Post.find({}, function(err, allPosts){
-    //     if(err){
-    //         console.log('An error occured '+ err);
-    //         return;
-    //     }
-    //     res.render('posts', {allPosts: allPosts});
-    // })
+    Post.find({}, function(err, allPosts){
+        if(err){
+            console.log('An error occured '+ err);
+            return;
+        }
+        res.render('posts', {user: req.user.name, allPosts: allPosts});
+    })
 })
 
 //Show Route
 router.get('/posts/:id', function(req, res){
     var id = req.params.id;
-    Post.findById(id, function(err, returnedPosts){
+    Post.findById(id, function(err, returnedPost){
         if(err){
             res.redirect("/posts")
         }
         else{
-            res.render("showPost", {returnedPosts: returnedPosts})
+            res.render("showPost", {returnedPost: returnedPost})
             
         }
     })

@@ -5,7 +5,12 @@
 <h1>Post page</h1>
 
 <!-- Displays all the post in the database -->
-
+<% allPosts.forEach(function(post){ %>
+    <h4>Title: <%= post.title%></h4>
+    <p><%= post.body%></p>
+    By <%= post.name%> on <%= post.date.toDateString() %>
+    <a href="/posts/<%=post._id %>">... See More</a>
+<% }) %>
 <!-- create your own post-->
 <h3>Create Post</h3>
 <form action="/newPost" method="Post">
