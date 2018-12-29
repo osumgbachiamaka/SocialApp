@@ -9,6 +9,7 @@
     <h4>Title: <%= post.title%></h4>
     <p><%= post.body%></p>
     By <%= post.name%> on <%= post.date.toDateString() %>
+    <a href="/posts/<%=post._id %>">... See More</a>
 <% }) %>
 <!-- create your own post-->
 <h3>Create Post</h3>

@@ -3,8 +3,8 @@ var express =   require('express')
     Post =      require('../models/postModels');
 
 //========other routes======//
-router.get('/',  isLoggedIn, function(req, res){
-    res.render('login');
+router.get('/', function(req, res){
+    res.render('index');
 })
 
 function isLoggedIn(req, res, next){
@@ -24,7 +24,6 @@ router.get('/posts',  isLoggedIn, function(req, res){
             console.log('An error occured '+ err);
             return;
         }
-        console.log(allPosts)
         res.render('posts', {user: req.user.name, allPosts: allPosts});
     })
 })
