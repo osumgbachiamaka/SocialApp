@@ -18,14 +18,15 @@ router.get('/newPost', isLoggedIn, function(req, res){
     res.redirect('posts');
 })
 router.get('/posts',  isLoggedIn, function(req, res){
-    res.render('posts', {user: req.user.name});
-    // Post.find({}, function(err, allPosts){
-    //     if(err){
-    //         console.log('An error occured '+ err);
-    //         return;
-    //     }
-    //     res.render('posts', {allPosts: allPosts});
-    // })
+    // res.render('posts', {user: req.user.name});
+    Post.find({}, function(err, allPosts){
+        if(err){
+            console.log('An error occured '+ err);
+            return;
+        }
+        console.log(allPosts)
+        res.render('posts', {user: req.user.name, allPosts: allPosts});
+    })
 })
 
 //Show Route
