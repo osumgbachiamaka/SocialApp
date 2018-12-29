@@ -1,4 +1,12 @@
-<!--Show a specific post-->
+<!--Show a specific post, and if user is creator can edit or delete post-->
 <h2><%= returnedPost.title%></h3>
 <p><%= returnedPost.body%></p>
 By - <%= returnedPost.name%> on <%= returnedPost.date.toDateString()%>
+
+    <% if(edit  == 1){ %>
+    <a href="/posts/<%=returnedPost._id %>/edit">Edit</a>
+    <form action="/posts/<%=returnedPost._id %>?_method=delete" method="post">
+        <button>Delete Post</button>
+    </form>
+<% } %>
+

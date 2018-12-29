@@ -27,37 +27,71 @@ router.get('/posts',  isLoggedIn, function(req, res){
             return;
         }
         res.render('posts', {user: req.user.name, allPosts: allPosts});
+        console.log(allPosts)
     })
 })
 
 //Show Route
-router.get('/posts/:id', function(req, res){
+router.get('/posts/:id', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findById(id, function(err, returnedPost){
         if(err){
-            res.redirect("/posts")
-        }
-        else{
-            res.render("showPost", {returnedPost: returnedPost})
-            
-        }
+            res.redirect("/posts");
+            return;
+        } 
+        var username = req.user.username,
+            retrievedUser = returnedPost.email;
+            if(username === retrievedUser){
+                res.render("showPost", {returnedPost: returnedPost, edit:'1'});
+            }
+            else{
+                res.render("showPost", {returnedPost: returnedPost, edit: '0'});
+            }  
     })
 })
 
 
 //Edit Route
-router.get('/posts/:id/edit', function(req, res){
+router.get('/posts/:id/edit', isLoggedIn, function(req, res){
     var id = req.params.id;
-    Post.findById(id, function(err, returnedPosts){
+    Post.findById(id, function(err, returnedPost){
         if(err){
             res.redirect('/posts')
         }
         else{
-            res.render('edit', {post: returnedPosts})
+            res.render('edit', {post: returnedPost})
         }
     })
 })
 
+//Update Route
+router.put('/posts/:id', function(req, res){
+    var id = req.params.id,
+        data = req.body.post;
+    Post.findByIdAndUpdate(id, data, function(err, reupdatedPost){
+        if(err){
+            console.log(err)
+            res.redirect('posts');
+        }else{
+            res.redirect(id);
+        }
+        
+    })
+})
+
+router.delete('/posts/:id', function(req, res){
+    var id = req.params.id;
+    Post.findByIdAndRemove(id, function(err){
+        if(err){
+            console.log(err)
+            res.redirect(id);
+            return
+        }
+        res.redirect('posts');
+    })
+})
+
+//New Post Route
 router.post('/newPost', function(req, res){
     var user = req.user,
         name = 'name',
