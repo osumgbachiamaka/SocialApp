@@ -1,31 +1,46 @@
 <% include partials/header %>
 
-<!--Design your page here -->
-<h4>Welcome <%= user%></h4>
-<h1>Post page</h1>
+<header>
+        <div class="container">
+            <div class="brandname">
+                <h1>connect<span class="brandname-span">Me</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="/index">Hi <%= user%></a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <section id="main-post">
+            <div class="container">
+                <div class="create-post">
+                        <h1>What's On Your Mind</h1>
+                        <form class="post-form" action="/newPost" method="post">
+        
+                                <div class="post-form-field">
+                                    <input type="text" name="post[title]" placeholder="Give your thought a title" required>
+                                </div>
+                                <div class="post-form-field">
+                                    <textarea name="post[body]" placeholder="Share your thoughts" cols="30" rows="5" required></textarea>
+                                </div>
+                                    <input type="submit" value="Post" class="button post-button">
+                                <hr>
+                        </form>
+                </div>
 
-<!-- Displays all the post in the database -->
-<% allPosts.forEach(function(post){ %>
-    <h4>Title: <%= post.title%></h4>
-    <p><%= post.body%></p>
-    <!--work on displaying all the post of a particular user-->
-    By <a href ="/posts/<%=post._id %>/user" ><%= post.name%></a> 
-    on <%= post.date.toDateString() %>
-    <a href="/posts/<%=post._id %>">... See More</a>
-    <!-- <form action="/posts/users" method="post">
-        <button><%= post.email %></button>
-    </form> -->
-<% }) %>
-<!-- create your own post-->
-<h3>Create Post</h3>
-<form action="/newPost" method="Post">
-    <input type="text" name="post[title]" placeholder="Title" />
-    <textarea name="post[body]" placeholder="Compose Post" ></textarea>
-    <input type="submit" value="Post" />
-</form>
-
-
-<!-- Logout-->
-<a href="/logout">Logout</a>
-
+                <div class="timeline">
+                    <% allPosts.forEach(function(post){ %>
+                        <div class="post-box">
+                            <h4>Title: <span class="brandname-span"><%= post.title%></span></h4>
+                            By <%= post.name%> on <%= post.date.toDateString() %>
+                            <p><%= post.body%></p>
+                            <a href="/posts/<%=post._id %>">... See More</a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
 <% include partials/footer %>
