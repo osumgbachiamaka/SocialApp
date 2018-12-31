@@ -5,7 +5,7 @@
     <h4>Title: <%= post.title%></h4>
     <p><%= post.body%></p>
     <!--work on displaying all the post of a particular user-->
-    By <a href ="/posts/<%=post._id %>/user" ><%= post.name%></a> 
+    By <%= post.name%>
     on <%= post.date.toDateString() %>
     <a href="/posts/<%=post._id %>">... See More</a>
     <!-- <form action="/posts/users" method="post">

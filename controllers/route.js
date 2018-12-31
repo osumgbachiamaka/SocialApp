@@ -100,7 +100,6 @@ router.get('/posts/:id/user', isLoggedIn, function(req, res){
             return;
         }
         var email = foundPost.email;
-        console.log(email)
         Post.find({email: email}, function(err, next){
             if(err){
                 console.log(err)
