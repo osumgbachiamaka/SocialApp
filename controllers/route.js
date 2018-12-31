@@ -1,72 +1,78 @@
 var express =   require('express')
-    router =    express.Router();
-var passport = require('passport');
+    router =    express.Router(),
+    Post =      require('../models/postModels');
 
-//========get======//
-//========authentication======//
-router.get('/index', function(req, res){
+//========other routes======//
+router.get('/', function(req, res){
     res.render('index');
 })
-router.get('/', function(req, res){
-    res.render('login');
-})
-router.get('/login', function(req, res){
-    res.render('login');
-})
-router.get('/register', function(req, res){
-    res.render('register');
-})
-router.get('/logout', function(req, res){
-    req.logout();
+router.get('/index', function(req, res){
     res.redirect('/');
 })
- function isLoggedIn(req, res, next){
+
+function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
     res.redirect('/login');
- }
+}
 
-//========post======//
-//========authentication======//
-router.post('/register', function(req, res){
-    var userDetails = req.body.user;
-    User.register(new User({name: userDetails.name, username: userDetails.email}), userDetails.password, function(err, user){
-        if(err){
-            return res.render('register');
-        }
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/posts");
-            console.log(user)
-        })
-    })
+router.get('/newPost', isLoggedIn, function(req, res){
+    res.redirect('posts');
 })
-
-// //using passport.authenticate as middleware
-router.post('/login', passport.authenticate("local",{
-    successRedirect: '/posts',
-    failureRedirect: '/login'
-}),function(req, res){
-
-})
-
-
-//========other routes======//
 router.get('/posts',  isLoggedIn, function(req, res){
-    res.render('posts');
+    Post.find({}, function(err, allPosts){
+        if(err){
+            console.log('An error occured '+ err);
+            return;
+        }
+        res.render('posts', {user: req.user.name, allPosts: allPosts});
+    })
 })
 
 //Show Route
 router.get('/posts/:id', function(req, res){
     var id = req.params.id;
-    Post.findById(id, function(err, returnedPosts){
+    Post.findById(id, function(err, returnedPost){
         if(err){
             res.redirect("/posts")
         }
         else{
-            res.render("showPost", {returnedPosts: returnedPosts})
+            res.render("showPost", {returnedPost: returnedPost})
             
         }
+    })
+})
+
+
+//Edit Route
+router.get('/posts/:id/edit', function(req, res){
+    var id = req.params.id;
+    Post.findById(id, function(err, returnedPosts){
+        if(err){
+            res.redirect('/posts')
+        }
+        else{
+            res.render('edit', {post: returnedPosts})
+        }
+    })
+})
+
+router.post('/newPost', function(req, res){
+    var user = req.user,
+        name = 'name',
+        email = 'email';
+    var data = req.body.post;
+    data[name] = user.name;
+    data[email] = user.username;
+    Post.create(data, function(err, postCreated){
+        if(err){
+            console.log('An error occured '+ err);
+            return;
+        }
+        res.redirect('posts');
+        
+        
     })
 })
 

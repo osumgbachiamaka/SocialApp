@@ -1,12 +1,13 @@
-var PORT =  process.env.PORT || 3000,
+var PORT =  process.env.PORT || 4000,
     IP =    process.env.IP,
     express =               require('express'),
     bodyParser =            require('body-parser'),
     mongoose =              require('mongoose'),
     passport =              require('passport'),
     LocalStrategy =         require('passport-local'),
-    passportLocalMongoose = require('passport-local-mongoose')
+    passportLocalMongoose = require('passport-local-mongoose'),
     router =                require('./controllers/route'),
+    auth =                  require('./controllers/auth'),
     User =                  require('./models/userModels.')
 
     mongoose.set('useCreateIndex', true);
@@ -24,6 +25,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(router);
+app.use(auth);
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
