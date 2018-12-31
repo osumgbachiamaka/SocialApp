@@ -9,7 +9,7 @@
      padding: 0;
  }
 
-  /*Global Styles*/
+  /*Global*/
  .container{
      width: 80%;
      margin: auto;
@@ -117,7 +117,6 @@ footer p{
 }
 
 /* Register Page*/
-
 #main{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
     background-repeat: no-repeat;
@@ -133,24 +132,38 @@ footer p{
     font-size: 40px;
 }
 
+ /*Global*/
 form{
     border-radius: 15px;
     padding: 20px 0 20px 0;
   }
 
+   /*Global*/
 .form-field{
     display: block;
     margin: 25px 0 25px 0;   
   }
  
+   /*Global*/
 .form-field input{
     min-width: 50%;
     height: 35px;
     border-radius: 5px;
     font-size: 16px;
     padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
+   /*Global*/
+.form-field textarea{
+    min-width: 50%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+   /*Global*/
 form input{
     outline: none;
 }
@@ -181,3 +194,74 @@ form p span a:hover{
     background-color: #2c3e50;
     color: #f5f6fa;
 }
+
+ /*Posts Page*/
+ #main-post {
+    text-align: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main-post h1{
+    margin-bottom: 0;
+    color: #2c3e50;
+    font-size: 30px;
+}
+
+.post-form{
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 0;
+}
+
+.post-form-field{
+    display: block;
+    margin: 25px 0 25px 0; 
+}
+
+.post-form-field input{
+    min-width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.post-form-field textarea{
+    min-width: 80%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.post-button{
+      margin-bottom: 40px;
+  }
+
+  #main-post .timeline{
+      text-align: left;
+  }
+
+.timeline h4{
+      font-size: 20px;
+      font-weight: bold;
+  }
+
+.timeline a{
+    text-decoration: none;
+    color: #f5f6fa;
+}
+
+  .timeline .post-box{
+      border: 1px solid #2c3e50;
+      width: 50%;
+      margin: 20px auto;
+      padding: 0 0 20px 20px;
+      border-radius: 5px;
+      background-color: #2c3e50;
+      color: #f5f6fa;
+  }
