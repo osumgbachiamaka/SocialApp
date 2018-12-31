@@ -1,12 +1,11 @@
 <% include partials/header %>
 
 <!--Design your page here -->
+<!--Editing a particular post by the creator-->
 <h1>Edit <%= post.title%></h1>
-<form method="post" action="/editPost">
-    <input type="text" name="returnedPosts[name]"  value="<%= post.name%>"/>
-    <input type="text" name="reveiws[role]" value="<%= post.role%>" />
-    <input type="text" name="reveiws[topic]" value="<%= post.topic%>" />
-    <textarea name="<%= returnedReveiw.body%>"><%= post.body%></textarea>
-    <input type="submit" value="Submit" />
+<form method="post" action="/posts/<%= post._id%>?_method=put">
+    <input type="text" name="post[title]"  value="<%= post.title%>"/>
+    <textarea name="post[body]"><%= post.body%></textarea>
+    <input type="submit" value="Post" />
 </form>
 <% include partials/footer %>
