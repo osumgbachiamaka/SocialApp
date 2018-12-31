@@ -27,7 +27,6 @@ router.get('/posts',  isLoggedIn, function(req, res){
             return;
         }
         res.render('posts', {user: req.user.name, allPosts: allPosts});
-        console.log(allPosts)
     })
 })
 
@@ -65,7 +64,7 @@ router.get('/posts/:id/edit', isLoggedIn, function(req, res){
 })
 
 //Update Route
-router.put('/posts/:id', function(req, res){
+router.put('/posts/:id', isLoggedIn, function(req, res){
     var id = req.params.id,
         data = req.body.post;
     Post.findByIdAndUpdate(id, data, function(err, reupdatedPost){
@@ -79,7 +78,7 @@ router.put('/posts/:id', function(req, res){
     })
 })
 
-router.delete('/posts/:id', function(req, res){
+router.delete('/posts/:id', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findByIdAndRemove(id, function(err){
         if(err){
@@ -91,8 +90,29 @@ router.delete('/posts/:id', function(req, res){
     })
 })
 
+// Show the post of a particular user
+router.get('/posts/:id/user', isLoggedIn, function(req, res){
+    var id = req.params.id;
+    Post.findById(id, function(err, foundPost){
+        if(err){
+            console.log(err);
+            res.redirect('posts');
+            return;
+        }
+        var email = foundPost.email;
+        console.log(email)
+        Post.find({email: email}, function(err, next){
+            if(err){
+                console.log(err)
+                return;
+            }
+            res.render('user', {allPosts: next, user: req.user});
+        })
+    })
+});
+
 //New Post Route
-router.post('/newPost', function(req, res){
+router.post('/newPost', isLoggedIn, function(req, res){
     var user = req.user,
         name = 'name',
         email = 'email';
