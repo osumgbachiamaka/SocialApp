@@ -37,7 +37,7 @@
                     <% allPosts.forEach(function(post){ %>
                         <div class="post-box">
                             <h4>Title: <span class="brandname-span"><%= post.title%></span></h4>
-                            By <%= post.name%> on <%= post.date.toDateString() %>
+                            By <a href="/posts/<%=post._id %>/<%=post.name%>"><%= post.name%></a> on <%= post.date.toDateString() %>
                             <p><%= post.body%></p>
                             <a href="/posts/<%=post._id %>">... View post</a>
                         </div>

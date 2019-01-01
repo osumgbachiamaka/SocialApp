@@ -91,7 +91,7 @@ router.delete('/posts/:id', isLoggedIn, function(req, res){
 })
 
 // Show the post of a particular user
-router.get('/posts/:id/user', isLoggedIn, function(req, res){
+router.get('/posts/:id/:user', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findById(id, function(err, foundPost){
         if(err){
