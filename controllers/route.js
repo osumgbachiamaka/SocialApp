@@ -27,7 +27,6 @@ router.get('/posts',  isLoggedIn, function(req, res){
             return;
         }
         res.render('posts', {user: req.user.name, allPosts: allPosts});
-        console.log(allPosts)
     })
 })
 
@@ -42,10 +41,10 @@ router.get('/posts/:id', isLoggedIn, function(req, res){
         var username = req.user.username,
             retrievedUser = returnedPost.email;
             if(username === retrievedUser){
-                res.render("showPost", {returnedPost: returnedPost, edit:'1'});
+                res.render("showPost", {user: req.user.name, returnedPost: returnedPost, edit:'1'});
             }
             else{
-                res.render("showPost", {returnedPost: returnedPost, edit: '0'});
+                res.render("showPost", {user: req.user.name, returnedPost: returnedPost, edit: '0'});
             }  
     })
 })

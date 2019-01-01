@@ -117,7 +117,7 @@ footer p{
 }
 
 /* Register Page*/
-#main{
+#main-register, #main-login, #main-showpost{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
     background-repeat: no-repeat;
     background-size: cover;
@@ -125,7 +125,7 @@ footer p{
     text-align: center;
 }
 
-#main h1{
+#main-register h1, #main-login h1, #main-showpost h2{
     padding-top: 4%;
     margin-bottom: 0;
     color: #f5f6fa;
@@ -253,7 +253,7 @@ form p span a:hover{
 
 .timeline a{
     text-decoration: none;
-    color: #f5f6fa;
+    color: #e74c3c;
 }
 
   .timeline .post-box{
