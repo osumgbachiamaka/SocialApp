@@ -9,20 +9,30 @@
                 <ul>
                     <li class="active"><a href="/index">Hi <%= user%></a></li>
                     <li><a href="/logout">Logout</a></li>
+                    <li><a href="/posts">Back to posts</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-<h2><%= returnedPost.title%></h3>
-<p><%= returnedPost.body%></p>
-By - <%= returnedPost.name%> on <%= returnedPost.date.toDateString()%>
+    <section id="main-showpost">
+        <div class="container">
+            <div class="showpost">
+                    <h2><%= returnedPost.title%></h3>
+                        <div class="post-body">           
+                                <p><%= returnedPost.body%></p>
+                                By - <%= returnedPost.name%> on <%= returnedPost.date.toDateString()%>
 
-    <% if(edit  == 1){ %>
-    <a href="/posts/<%=returnedPost._id %>/edit">Edit</a>
-    <form action="/posts/<%=returnedPost._id %>?_method=delete" method="post">
-        <button>Delete Post</button>
-    </form>
-<% } %>
+                                <% if(edit  == 1){ %>
+                                    <form action="/posts/<%=returnedPost._id %>?_method=delete" method="post">
+                                        <a href="/posts/<%=returnedPost._id %>/edit"><input class="edit" value="Edit" type="button"></a>                 
+                                        <button>Delete</button>
+                                    </form>
+                                    <% } %>
+                        </div>
+            </div>           
+        </div>
+    </section>
+
 
 <% include partials/footer %> 
