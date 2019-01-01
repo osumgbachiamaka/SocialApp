@@ -58,7 +58,7 @@ router.get('/posts/:id/edit', isLoggedIn, function(req, res){
             res.redirect('/posts')
         }
         else{
-            res.render('edit', {post: returnedPost})
+            res.render('edit', {user: req.user.name, post: returnedPost})
         }
     })
 })
