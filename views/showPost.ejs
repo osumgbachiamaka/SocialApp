@@ -1,4 +1,19 @@
-<!--Show a specific post, and if user is creator can edit or delete post-->
+<% include partials/header %>
+
+<header>
+        <div class="container">
+            <div class="brandname">
+                <h1>connect<span class="brandname-span">Me</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="/index">Hi <%= user%></a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
 <h2><%= returnedPost.title%></h3>
 <p><%= returnedPost.body%></p>
 By - <%= returnedPost.name%> on <%= returnedPost.date.toDateString()%>
@@ -10,3 +25,4 @@ By - <%= returnedPost.name%> on <%= returnedPost.date.toDateString()%>
     </form>
 <% } %>
 
+<% include partials/footer %> 
