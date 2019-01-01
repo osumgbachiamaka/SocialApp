@@ -1,3 +1,4 @@
+
 <% include partials/header %>
 
 <header>
@@ -30,17 +31,21 @@
                                 <hr>
                         </form>
                 </div>
+                
 
                 <div class="timeline">
                     <% allPosts.forEach(function(post){ %>
                         <div class="post-box">
                             <h4>Title: <span class="brandname-span"><%= post.title%></span></h4>
-                            By <a href ="/posts/<%=post._id %>/user" ><%= post.name%></a> on <%= post.date.toDateString() %>
+                            By <%= post.name%> on <%= post.date.toDateString() %>
                             <p><%= post.body%></p>
-                            <a href="/posts/<%=post._id %>">... See More</a>
+                            <a href="/posts/<%=post._id %>">... View post</a>
                         </div>
                     <% }) %>
                 </div>
             </div>
+
+            
         </section>
+
 <% include partials/footer %>
