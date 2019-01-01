@@ -5,6 +5,7 @@ var postSchema = new mongoose.Schema({
     body: String,
     name: String,
     email : String,
+    likes_count: Number,
     date: {type: Date, default: Date.now}
 })
 

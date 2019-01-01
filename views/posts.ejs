@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,6 @@
         
     </head>
     <body>
-
 <header>
         <div class="container">
             <div class="brandname">
@@ -28,7 +28,7 @@
     <section id="main-post">
             <div class="container">
                 <div class="create-post">
-                        <h1>Edit Post</h1>
+                        <h1>What's On Your Mind</h1>
                         <form class="post-form" action="/newPost" method="post">
         
                                 <div class="post-form-field">
@@ -47,7 +47,7 @@
                     <% allPosts.forEach(function(post){ %>
                         <div class="post-box">
                             <h4>Title: <span class="brandname-span"><%= post.title%></span></h4>
-                            By <%= post.name%> on <%= post.date.toDateString() %>
+                            By <a href="/posts/<%=post._id %>/<%=post.name%>"><%= post.name%></a> on <%= post.date.toDateString() %>
                             <p><%= post.body%></p>
                             <a href="/posts/<%=post._id %>">... View post</a>
                         </div>
@@ -57,4 +57,5 @@
 
             
         </section>
+
 <% include partials/footer %>
