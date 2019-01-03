@@ -40,6 +40,13 @@
                             By <a href="/posts/<%=post._id %>/<%=post.name%>"><%= post.name%></a> on <%= post.date.toDateString() %>
                             <p><%= post.body%></p>
                             <a href="/posts/<%=post._id %>">... View post</a>
+
+                            <!--working on post like-->
+                            <button onclick="actOnPost(event);"
+                            data-post-id="<%=post._id %>">Like
+                    </button>
+                    <span id="likes-count-<%=post._id %>"><%=post.likes_count %></span>
+
                         </div>
                     <% }) %>
                 </div>
@@ -47,5 +54,34 @@
 
             
         </section>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            var updatePostStats = {
+                Like: function (postId) {
+                    document.querySelector('#likes-count-' + postId).textContent++;
+                },
+                Unlike: function(postId) {
+                    document.querySelector('#likes-count-' + postId).textContent--;
+                }
+            };
+    
+            var toggleButtonText = {
+                Like: function(button) {
+                    button.textContent = "Unlike";
+                },
+                Unlike: function(button) {
+                    button.textContent = "Like";
+                }
+            };
+    
+            var actOnPost = function (event) {
+                var postId = event.target.dataset.postId;
+                var action = event.target.textContent.trim();
+                toggleButtonText[action](event.target);
+                updatePostStats[action](postId);
+                console.log(updatePostStats[action](postId))
+                axios.post('/posts/' + postId + '/act', { action: action });
+            };
+        </script>
 
 <% include partials/footer %>
