@@ -3,265 +3,353 @@
  /*White - #f5f6fa*/
 
  body{
-     font: 15px/1.5 Arial, Helvetica, sans-serif;   /*font-size/line-height font-family*/
-     background-color: #dfe6e9;
-     margin: 0;
-     padding: 0;
- }
-
-  /*Global*/
- .container{
-     width: 80%;
-     margin: auto;
-     overflow: hidden;
- }
-
- ul{
+    font: 15px/1.5 Arial, Helvetica, sans-serif;   /*font-size/line-height font-family*/
+    background-color: #dfe6e9;
     margin: 0;
     padding: 0;
- }
+}
 
- /*Header Styles*/
- header{
-     background-color: #2c3e50;
-     color: #f5f6fa;
-     padding-top: 30px;
-     min-height: 70px;
- }
+ /*Global*/
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
- header a{
-     color: #f5f6fa;
-     text-decoration: none;
-     text-transform: uppercase;
-     font-size: 12px;
-     letter-spacing: 1.5px;
- }
+ul{
+   margin: 0;
+   padding: 0;
+}
 
- header li{
-     float: left;
-     list-style: none;
-     padding: 0 20px 0 20px;
- }
+/*Header Styles*/
+header{
+    background-color: #2c3e50;
+    color: #f5f6fa;
+    padding-top: 30px;
+    min-height: 70px;
+}
 
- .brandname-span{
-     color: #e74c3c;
- }
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+  }
 
- header .brandname{
-     float: left;
- }
+header a{
+    color: #f5f6fa;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
 
- header .brandname h1{
-     margin: 0;
- }
+header li{
+    float: left;
+    list-style: none;
+    padding: 0 20px 0 20px;
+}
 
- header nav{
-     float: right;
-     margin-top: 15px;
- }
-
- .active a{
+.brandname-span{
     color: #e74c3c;
-    font-weight: bold;
- }
+}
 
- /*ShowCase*/
- #showcase{
-     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-     background-repeat: no-repeat;
-     background-size: cover;
-     min-height: 400px;
-     text-align: center;
-     color: #f5f6fa;
-    }
+header .brandname{
+    float: left;
+}
+
+header .brandname h1{
+    margin: 0;
+}
+
+header nav{
+    float: right;
+    margin-top: 15px;
+}
+
+.active a{
+   color: #e74c3c;
+   font-weight: bold;
+}
+
+/*ShowCase*/
+#showcase{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    text-align: center;
+    color: #f5f6fa;
+   }
 
 #showcase h1{
-    margin-top: 10%;
-    font-size: 55px;
-    margin-bottom: 10px;
+   margin-top: 10%;
+   font-size: 55px;
+   margin-bottom: 10px;
 }
 
 #showcase p{
-    font-size: 16px;
+   font-size: 16px;
 }
 
 /*Boxes*/
 #boxes{
-    margin: 20px 0;
+   margin: 20px 0;
 }
 
 #boxes .box{
-    float: left;
-    width: 30%;
-    margin: 10px;
-    padding-top: 10px;
-    text-align: center;
-    border-radius: 5px;
-    background-color: #b2bec3;
+   float: left;
+   width: 30%;
+   margin: 10px;
+   padding-top: 10px;
+   text-align: center;
+   border-radius: 5px;
+   background-color: #b2bec3;
 }
 
 #boxes .box i{
-    font-size: 55px;
-    color: #2c3e50;
+   font-size: 55px;
+   color: #2c3e50;
 }
 
 footer{
-    background-color: #2c3e50;
-    padding: 20px;
-    color: #dfe6e9;
-    text-align: center;
+   background-color: #2c3e50;
+   padding: 20px;
+   color: #dfe6e9;
+   text-align: center;
 }
 
 footer p{
-    letter-spacing: 1.5px;
+   letter-spacing: 1.5px;
 }
 
 /* Register Page*/
-#main-register, #main-login, #main-showpost{
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    text-align: center;
+#main-register, #main-login, #main-showpost, #main-editpost, #main-user{
+   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
+   background-repeat: no-repeat;
+   background-size: cover;
+   min-height: 100vh;
+   text-align: center;
 }
 
-#main-register h1, #main-login h1, #main-showpost h2{
-    padding-top: 4%;
-    margin-bottom: 0;
-    color: #f5f6fa;
-    font-size: 40px;
+#main-register h1, #main-login h1, #main-showpost h2, #main-editpost h2, #main-user h1{
+   padding-top: 4%;
+   margin-bottom: 0;
+   color: #f5f6fa;
+   font-size: 40px;
 }
 
- /*Global*/
+/*Global*/
 form{
-    border-radius: 15px;
-    padding: 20px 0 20px 0;
-  }
+   border-radius: 15px;
+   padding: 20px 0 20px 0;
+ }
 
-   /*Global*/
+  /*Global*/
 .form-field{
-    display: block;
-    margin: 25px 0 25px 0;   
-  }
- 
-   /*Global*/
+   display: block;
+   margin: 25px 0 25px 0;   
+ }
+
+  /*Global*/
 .form-field input{
-    min-width: 50%;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+   min-width: 50%;
+   height: 35px;
+   border-radius: 5px;
+   font-size: 16px;
+   padding-left: 10px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
-   /*Global*/
+  /*Global*/
 .form-field textarea{
-    min-width: 50%;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+   min-width: 50%;
+   border-radius: 5px;
+   font-size: 16px;
+   padding-left: 10px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
-   /*Global*/
+  /*Global*/
 form input{
-    outline: none;
+   outline: none;
 }
 
 form p{
-    color: #f5f6fa;
+   color: #f5f6fa;
 }
 
 form p span a{
-    text-decoration: none;
-    color: #f5f6fa;
+   text-decoration: none;
+   color: #f5f6fa;
 }
-  
+ 
 form p span a:hover{
-    color: #e74c3c;
-  }
+   color: #e74c3c;
+ }
 
 
 .button{
-    height: 35px;
-    padding: 0 20px;
-    background-color: #e74c3c;
-    border: none;
-    border-radius: 5px;
+   height: 35px;
+   padding: 0 20px;
+   background-color: #e74c3c;
+   border: none;
+   border-radius: 5px;
 }
 
 .button:hover{
-    background-color: #2c3e50;
-    color: #f5f6fa;
+   background-color: #2c3e50;
+   color: #f5f6fa;
 }
 
- /*Posts Page*/
- #main-post {
-    text-align: center;
-    min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
-    background-repeat: no-repeat;
-    background-size: cover;
+/*Posts Page*/
+#main-post {
+   text-align: center;
+   min-height: 100vh;
+   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/1413653/pexels-photo-1413653.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); 
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 #main-post h1{
-    margin-bottom: 0;
-    color: #2c3e50;
-    font-size: 30px;
+   margin-bottom: 0;
+   color: #2c3e50;
+   font-size: 30px;
 }
 
 .post-form{
-    width: 60%;
-    margin: 0 auto;
-    padding-top: 0;
+   width: 60%;
+   margin: 0 auto;
+   padding-top: 0;
 }
 
 .post-form-field{
-    display: block;
-    margin: 25px 0 25px 0; 
+   display: block;
+   margin: 25px 0 25px 0; 
 }
 
 .post-form-field input{
-    min-width: 80%;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+   min-width: 80%;
+   height: 35px;
+   border-radius: 5px;
+   font-size: 16px;
+   padding-left: 10px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
 .post-form-field textarea{
-    min-width: 80%;
-    border-radius: 5px;
-    font-size: 16px;
-    padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+   min-width: 80%;
+   border-radius: 5px;
+   font-size: 16px;
+   padding-left: 10px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
 .post-button{
-      margin-bottom: 40px;
-  }
+     margin-bottom: 40px;
+ }
 
-  #main-post .timeline{
-      text-align: left;
-  }
+ #main-post .timeline, #main-user .timeline{
+     text-align: left;
+ }
 
 .timeline h4{
-      font-size: 20px;
-      font-weight: bold;
-  }
+     font-size: 24px;
+     font-weight: bold;
+ }
 
 .timeline a{
-    text-decoration: none;
-    color: #e74c3c;
+   text-decoration: none;
+   color: #e74c3c;
 }
 
-  .timeline .post-box{
-      border: 1px solid #2c3e50;
-      width: 50%;
-      margin: 20px auto;
-      padding: 0 0 20px 20px;
-      border-radius: 5px;
-      background-color: #2c3e50;
-      color: #f5f6fa;
-  }
+.timeline a:hover{
+    color: #f5f6fa;
+}
+
+ .timeline .post-box{
+     border: 1px solid #2c3e50;
+     width: 80%;
+     margin: 20px auto;
+     padding: 0 20px 20px 20px;
+     border-radius: 5px;
+     background-color: #2c3e50;
+     color: #f5f6fa;
+     line-height: 30px;
+ }
+
+.showpost{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#main-showpost h2{
+    border-radius: 5px;
+    padding-bottom: 20px;
+    background-color: #2c3e50;
+}
+
+.post-body{
+    border-radius: 5px;
+    padding-bottom: 20px;
+    background-color: #2c3e50;
+    color: #f5f6fa;
+    padding: 30px;
+    line-height: 30px;
+    margin: 30px 0;
+}
+
+.post-body span{
+    text-align: right;    
+    font-size: 22px;
+    margin-left: 70%;
+}
+
+.post-body span i{
+    margin-right: 15px;
+}
+
+.post-body span i{
+    text-decoration: none;
+}
+
+.delete{
+    background-color: #d63031;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.edit{
+    background-color: #00b894;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.edit:hover, .delete:hover{
+    color: #2c3e50;
+    background-color: #f5f6fa;
+}
+
+.edit-button:hover{
+    color: #f5f6fa;
+    background-color: #2c3e50;
+}
+
+.post-body a{
+    text-decoration: none;
+}
+
+.post-body span .fa-edit{
+    color: #f5f6fa;
+}
+
+#main-editpost .post-form .edit-textarea{
+    padding: 20px;
+    line-height: 30px;
+}

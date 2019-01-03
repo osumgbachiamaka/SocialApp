@@ -59,7 +59,7 @@ router.get('/posts/:id/edit', isLoggedIn, function(req, res){
             res.redirect('/posts')
         }
         else{
-            res.render('edit', {post: returnedPost})
+            res.render('edit', {user: req.user.name, post: returnedPost})
         }
     })
 })
@@ -111,6 +111,7 @@ router.get('/posts/:id/user', isLoggedIn, function(req, res){
     })
 });
 
+
 //Adding route for liking post
 // router.post('/posts/:id/act', (req, res, next) => {
 //     const action = req.body.action;
@@ -119,6 +120,7 @@ router.get('/posts/:id/user', isLoggedIn, function(req, res){
 //         res.send('');
 //     });
 // });
+
 
 //New Post Route
 router.post('/newPost', isLoggedIn, function(req, res){
