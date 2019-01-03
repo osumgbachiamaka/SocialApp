@@ -13,9 +13,19 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
     "mongoose": "^5.4.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^5.0.1"
-  }
+    "passport-local-mongoose": "^5.0.1",
+    "pusher": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chiazokam/SocialApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chiazokam/SocialApp/issues"
+  },
+  "homepage": "https://github.com/Chiazokam/SocialApp#readme"
 }
