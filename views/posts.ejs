@@ -55,7 +55,7 @@
                             <a href="/posts/<%=post._id %>">... View post</a>
 
                             <!--working on post like-->
-                            <button onclick="actOnPost(event);"
+                            <button class="edit like" onclick="actOnPost(event);"
                             data-post-id="<%=post._id %>">Like
                     </button>
                     <span id="likes-count-<%=post._id %>"><%=post.likes_count %></span>
