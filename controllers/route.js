@@ -27,6 +27,7 @@ router.get('/posts',  isLoggedIn, function(req, res){
             return;
         }
         res.render('posts', {user: req.user.name, allPosts: allPosts});
+        // console.log(req.body.action)
     })
 })
 
@@ -91,7 +92,7 @@ router.delete('/posts/:id', isLoggedIn, function(req, res){
 })
 
 // Show the post of a particular user
-router.get('/posts/:id/:user', isLoggedIn, function(req, res){
+router.get('/posts/:id/user', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findById(id, function(err, foundPost){
         if(err){
@@ -109,7 +110,18 @@ router.get('/posts/:id/:user', isLoggedIn, function(req, res){
         })
     })
 });
- 
+
+
+//Adding route for liking post
+// router.post('/posts/:id/act', (req, res, next) => {
+//     const action = req.body.action;
+//     const counter = action === 'Like' ? 1 : -1;
+//     Post.update({_id: req.params.id}, {$inc: {likes_count: counter}}, {}, (err, numberAffected) => {
+//         res.send('');
+//     });
+// });
+
+
 //New Post Route
 router.post('/newPost', isLoggedIn, function(req, res){
     var user = req.user,
