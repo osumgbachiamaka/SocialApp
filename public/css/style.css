@@ -268,7 +268,7 @@ form p span a:hover{
 
  .timeline .post-box{
      border: 1px solid #2c3e50;
-     width: 80%;
+     width: 50%;
      margin: 20px auto;
      padding: 0 20px 20px 20px;
      border-radius: 5px;
@@ -310,6 +310,10 @@ form p span a:hover{
 
 .post-body span i{
     text-decoration: none;
+}
+
+.like{
+    margin-left: 10px;
 }
 
 .delete{
