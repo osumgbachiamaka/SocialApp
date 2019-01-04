@@ -1,6 +1,7 @@
 var express =   require('express')
     router =    express.Router(),
-    Post =      require('../models/postModels');
+    Post =      require('../models/postModels'),
+    Pusher = require('pusher');
 
 //========other routes======//
 router.get('/', function(req, res){
@@ -92,7 +93,7 @@ router.delete('/posts/:id', isLoggedIn, function(req, res){
 })
 
 // Show the post of a particular user
-router.get('/posts/:id/user', isLoggedIn, function(req, res){
+router.get('/posts/:id/:user', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findById(id, function(err, foundPost){
         if(err){
@@ -111,25 +112,16 @@ router.get('/posts/:id/user', isLoggedIn, function(req, res){
     })
 });
 
-
-//Adding route for liking post
-// router.post('/posts/:id/act', (req, res, next) => {
-//     const action = req.body.action;
-//     const counter = action === 'Like' ? 1 : -1;
-//     Post.update({_id: req.params.id}, {$inc: {likes_count: counter}}, {}, (err, numberAffected) => {
-//         res.send('');
-//     });
-// });
-
-
 //New Post Route
 router.post('/newPost', isLoggedIn, function(req, res){
     var user = req.user,
         name = 'name',
-        email = 'email';
+        email = 'email',
+        likes_count = 'likes_count';
     var data = req.body.post;
     data[name] = user.name;
     data[email] = user.username;
+    data[likes_count] = 0;
     Post.create(data, function(err, postCreated){
         if(err){
             console.log('An error occured '+ err);
@@ -141,4 +133,28 @@ router.post('/newPost', isLoggedIn, function(req, res){
     })
 })
 
+//configuring pusher
+
+var pusher = new Pusher({
+    appId: '684513',
+    key: 'e492b1dfd182dd30fde2',
+    secret: '0b8854ba6990061eb678',
+    cluster: 'eu',
+    encrypted: true
+  });
+
+//Adding route for liking post
+router.post('/posts/:id/act', (req, res, next) => {
+    var action = req.body.action,
+        id = req.params.id,
+        counter = action === 'Like' ? 1 : +1;
+    Post.update({_id: id}, {$inc: {likes_count: counter}}, function(err, numberAffected){
+        if(err){
+            console.log('error occurred '+ err);
+            return;
+        }
+        pusher.trigger('post-events', 'postAction', { action: action, postId: id }, req.body.socketId);
+        res.send('');
+    });
+});
 module.exports = router;
