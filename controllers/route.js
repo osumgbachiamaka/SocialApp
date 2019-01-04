@@ -92,7 +92,7 @@ router.delete('/posts/:id', isLoggedIn, function(req, res){
 })
 
 // Show the post of a particular user
-router.get('/posts/:id/user', isLoggedIn, function(req, res){
+router.get('/posts/:id/:user', isLoggedIn, function(req, res){
     var id = req.params.id;
     Post.findById(id, function(err, foundPost){
         if(err){
@@ -113,23 +113,25 @@ router.get('/posts/:id/user', isLoggedIn, function(req, res){
 
 
 //Adding route for liking post
-// router.post('/posts/:id/act', (req, res, next) => {
-//     const action = req.body.action;
-//     const counter = action === 'Like' ? 1 : -1;
-//     Post.update({_id: req.params.id}, {$inc: {likes_count: counter}}, {}, (err, numberAffected) => {
-//         res.send('');
-//     });
-// });
+router.post('/posts/:id/act', (req, res, next) => {
+    const action = req.body.action;
+    const counter = action === 'Like' ? 1 : -1;
+    Post.update({_id: req.params.id}, {$inc: {likes_count: counter}}, {}, (err, numberAffected) => {
+        res.send('');
+    });
+});
 
 
 //New Post Route
 router.post('/newPost', isLoggedIn, function(req, res){
     var user = req.user,
         name = 'name',
-        email = 'email';
+        email = 'email',
+        likes_count = 'likes_count';
     var data = req.body.post;
     data[name] = user.name;
     data[email] = user.username;
+    data[likes_count] = 0;
     Post.create(data, function(err, postCreated){
         if(err){
             console.log('An error occured '+ err);

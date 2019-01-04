@@ -15,7 +15,7 @@ var PORT =  process.env.PORT || 3000,
     // mongoose.connect("mongodb://localhost/mysocialapp", { useNewUrlParser:true }).catch()
     mongoose.connect("mongodb://user:slatecubeproject1@ds255403.mlab.com:55403/nodeprojects", { useNewUrlParser:true }, function(err){
         if(err){
-            console.log("can't connet to database")
+            console.log("can't connet to database " + err)
             return;
         }
         console.log("connection successfull");
