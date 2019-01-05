@@ -15,3 +15,16 @@ function fixHeader() {
     header.classList.remove("sticky");
   }
 }
+
+
+let createPost = document.querySelector("#create-post");
+let modalDisplay = document.querySelector(".modal");
+let modalClose = document.querySelector(".modal-close");
+
+createPost.addEventListener('focus', function(){
+  modalDisplay.style.display = "block";
+});
+
+modalClose.addEventListener('click', function(){
+  modalDisplay.style.display = "none";
+})
