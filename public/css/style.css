@@ -271,6 +271,17 @@ form p span a:hover{
     padding-top: 4%;
   }
 
+.modal-content{
+    background: white;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.modal-content .post-form-field{
+    margin: 20px 0 10px 0; 
+ }
+
 .modal .post-form{
     width: 80%;
 }
@@ -280,20 +291,20 @@ form p span a:hover{
 }
 
 .modal-close{
-    color: #f5f6fa;
+    color:#d63031;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 50%; 
+    margin-left: 75%;
   }
-  .modal-close2{
+  /*.modal-close2{
     color: #0b121b;
     font-size: 30px;
     font-weight: bold;
-  }
+  }*/
 
   .modal-close:hover{
     cursor: pointer;
-    color: #d63031
+    color: #2c3e50;
   }
 
 #main-post .timeline, #main-user .timeline{
@@ -407,8 +418,3 @@ form p span a:hover{
     height: 80px;
 }
 
-.modal-content{
-    background: white;
-    width: 40%;
-    margin: 0 auto;
-}
