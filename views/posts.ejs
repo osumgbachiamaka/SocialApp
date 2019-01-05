@@ -30,9 +30,18 @@
  
     <section id="main-post">
             <div class="container">
-                <div class="create-post">
-                        <h1>What's On Your Mind</h1>
-                        <form class="post-form" action="/newPost" method="post">
+                        <form class="post-form" action="" method="">
+        
+                                <div class="post-form-field">
+                                    <input id="create-post" type="text" name="post[title]" placeholder="What's On Your Mind, <%= user.split(" ")[0]%>"  required>
+                                </div>
+                        </form>
+
+                        <!--Modal-->
+                        <div class="modal">
+                            <section class="modal-content">
+                              <span class="modal-close">&times;</span>
+                              <form class="post-form" action="/newPost" method="post">
         
                                 <div class="post-form-field">
                                     <input type="text" name="post[title]" placeholder="Give your thought a title" required>
@@ -41,9 +50,9 @@
                                     <textarea name="post[body]" placeholder="Share your thoughts" cols="30" rows="5" required></textarea>
                                 </div>
                                     <input type="submit" value="Post" class="button post-button">
-                                <hr>
-                        </form>
-                </div>
+                                </form>
+                            </section>
+                        </div>
                 
 
                 <div class="timeline">
