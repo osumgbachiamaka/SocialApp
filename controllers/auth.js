@@ -1,6 +1,6 @@
 var express =   require('express')
     router =    express.Router(),
-    passport =  require('passport'),
+    passport =  require('passport')
     User =      require('../models/userModels.');
 
 //========get======//
@@ -35,7 +35,7 @@ router.post('/register', function(req, res){
 // //using passport.authenticate as middleware
 router.post('/login', passport.authenticate("local",{
     successRedirect: '/posts',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
 }),function(req, res){
 
 })
